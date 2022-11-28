@@ -1,10 +1,11 @@
+
 describe('Working with fixture and static data', () => {
   it('fixture trial', () => {
 
       cy.visit('https://www.saucedemo.com/');
       cy.fixture('user').then(user => {
-        let username = user.usernames
-        let password = user.password
+        const username = user.usernames
+        const password = user.password
         
         cy.get('#user-name').input('username')
       
@@ -13,8 +14,8 @@ describe('Working with fixture and static data', () => {
       })
 
       cy.fixture('user2').then(user => {
-        let username = user2.usernames
-        let password = user2.password
+        const username = user2.usernames
+        const password = user2.password
         
         cy.get('#user-name').input('username')
       
