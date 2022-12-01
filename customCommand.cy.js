@@ -1,16 +1,11 @@
 /// <reference types="cypress" />
 
-const { eq } = require("lodash")
-
 
 describe('working with custom commands', () => {
 
-    it('login flow', () => {
-      cy.visit('http://zero.webappsecurity.com/login.html')
-      cy.get('#user_login').should ('be.enabled').type('username')
-      cy.get('#user_password').should ('be.enabled').type('password')
-      cy.get('#user_remember_me').check().should('be.checked')
-      cy.get('[name=submit]').click()
+    it('custom command', () => {
+
+      cy.login('username', 'password')
       cy.get ('a').contains('Pay Bills'). click()
       cy.get('#sp_payee').select(3).should('have.value', 'wellsfargo')
       cy.get('#sp_account').select(4).should('have.value', '5')
@@ -20,7 +15,6 @@ describe('working with custom commands', () => {
      
       cy.get('#pay_saved_payees').click()
 
-      
     })
 
     })
